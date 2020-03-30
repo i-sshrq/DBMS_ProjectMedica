@@ -1,0 +1,16 @@
+body {
+  background-color: rgb(248, 233, 233);
+}
+
+.input-field {
+  height: 5rem;
+}
+
+.box-header {
+  margin: 1rem;
+  padding: 1rem;
+  color: darkcyan;
+  vertical-align: middle;
+  text-align: center;
+  background-color: rgb(227, 242, 255);
+}

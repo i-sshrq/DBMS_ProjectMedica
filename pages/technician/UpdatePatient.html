@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/materialize.min.css" />
+    <link rel="stylesheet" href="css/UpdatePatientForm.css" />
+    <link rel="stylesheet" href="icons/material-icons.css" />
+  </head>
+  <body>
+    <div class="valign-wrapper">
+      <div class="row container">
+        <div class="card z-depth-5 col s12 l6 offset-l3 m8 offset-m2 container">
+          <div class="box-header"><h4>Add New Patient</h4></div>
+          <form id="UpdatePatientForm" action="/updatePatient" method="post">
+            <!-- id -->
+            <div class="input-field col s6">
+              <input id="birth_reg" name="birth_reg" type="number" />
+              <label for="birth_reg">
+                <i class="material-icons left blue-text">verified_user</i>
+                Birth Reg Number
+              </label>
+            </div>
+            <!-- name -->
+            <div class="input-field col s6">
+              <input id="patient_name" name="patient_name" type="text" />
+              <label for="patient_name">
+                <i class="material-icons left blue-text">person</i>
+                Patient Name
+              </label>
+            </div>
+            <!-- dob -->
+            <div class="col s6">
+              <label for="patient_dob">
+                <i class="material-icons left blue-text">calendar_today</i>
+                Date of Birth
+              </label>
+              <input id="patient_dob" name="patient_dob" type="date" />
+            </div>
+
+            <!-- Blood Grp -->
+            <div class="input-field col s6">
+              <input id="blood_group" name="blood_group" type="text" />
+              <label for="blood_group">
+                <i class="material-icons left blue-text">invert_colors</i>
+                Blood Group
+              </label>
+            </div>
+            <!-- phone -->
+            <div class="input-field col s6">
+              <input id="phone_number" name="phone_number" type="number" />
+              <label for="phone_number">
+                <i class="material-icons left blue-text">phone</i>
+                Contact Number
+              </label>
+            </div>
+            <!-- email -->
+            <div class="input-field col s6">
+              <input id="email" name="email" type="email" />
+              <label for="email">
+                <i class="material-icons left blue-text">email</i>
+                Email
+              </label>
+            </div>
+            <!-- address -->
+            <div class="input-field col s6">
+              <input id="address" name="address" type="text" />
+              <label for="address">
+                <i class="material-icons left blue-text">home_work</i>
+                Residential Address
+              </label>
+            </div>
+            <!-- passport -->
+            <div class="input-field col s6">
+              <input id="passport_number" name="passport_number" type="text" />
+              <label for="passport">
+                <i class="material-icons left blue-text">chrome_reader_mode</i>
+                Passport Number
+              </label>
+            </div>
+
+            <!-- health issues -->
+            <div class="input-field col s6">
+              <input id="health_issues" name="health_issues" type="text" />
+              <label for="health_issues">
+                <i class="material-icons left blue-text">add_box</i>
+                Health Issues
+              </label>
+            </div>
+            <!-- other  -->
+            <div class="input-field col s6">
+              <input id="other_info" name="other_info" type="text" />
+              <label for="other_info">
+                <i class="material-icons left blue-text">description</i>
+                Other Information
+              </label>
+            </div>
+            <!-- buttons -->
+            <div class="row ">
+              <div class="col s12 offset-s3">
+                <div class="row">
+                  <button
+                    type="submit"
+                    class="btn-large green waves-effect waves-light"
+                  >
+                    <i class="material-icons left">done</i>
+                    Save changes
+                  </button>
+                </div>
+
+                <div class="row">
+                  <button
+                    id="cancel"
+                    style="width: 2 rem"
+                    class="btn-large red waves-effect waves-light"
+                  >
+                    <i class="material-icons left">close</i>
+                    Don't update
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="js/formUtil_1.js"></script>
+  <script src="js/materialize.min.js"></script>
+</html>
