@@ -1,3 +1,6 @@
+drop table Patient;
+
+
 create table Patient
 (
 Patient_id varchar2(15)CONSTRAINT Patient_PATIENT_ID_pk PRIMARY KEY,
