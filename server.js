@@ -8,7 +8,7 @@ let queries = [];
 let connection;
 let connected = false;
 let results;
-let connect_to_database = async function() {
+let connect_to_database = async function () {
   connection = await db.start_connection("R_201814023", "home54963");
   await (function setConn() {
     connected = true;
@@ -18,7 +18,7 @@ let connect_to_database = async function() {
 
 //ALWAYS CHECK connected BOOLEAN BEFORE DB ACCESS
 
-let execute_queries = async function(q) {
+let execute_queries = async function (q) {
   try {
     if (!connected) {
       await connect_to_database();
@@ -83,20 +83,25 @@ app.post("/updatePatient", (req, res) => {
 
   let queries = [string_1 + string_2 + string_3 + string_4];
   queries.push("commit");
-  execute_queries(queries).then(result => {
+  execute_queries(queries).then((result) => {
     console.log(result);
     res.send("<h1>Successfuly added a new Patient to DB</h1>");
   });
+});
+
+app.get("/temporary", (req, res) => {
+  let page = pages + "patient/Services.html";
+  res.sendFile(page);
 });
 
 app.get("/getPatients", (req, res) => {
   queries.push("select * from patient");
   console.log(queries);
   execute_queries(queries)
-    .then(response => {
+    .then((response) => {
       res.send(response);
     })
-    .then(x => {
+    .then((x) => {
       queries = [];
     });
 });
