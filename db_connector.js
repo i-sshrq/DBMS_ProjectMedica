@@ -1,33 +1,32 @@
-const odbc = require("oracledb");
-let connection;
+var Sequelize = require("sequelize-oracle");
+var db = new Sequelize("XE", "R_201814023", "home54963", {
+  database: "XE",
+  username: "R_201814023",
+  password: "home54963",
+  host: "127.0.0.1",
+  port: "1521",
+  pool: {
+    maxConnections: 5,
+    maxIdleTime: 3000,
+  },
+  dialect: "oracle",
+  logging: console.log,
+});
 
-async function start_connection(username, password) {
-  connected = false;
-  if (connected) return;
+const checkAuth = async function checkAuth() {
   try {
-    connection = await odbc.getConnection({
-      user: username,
-      password: password,
-      connectString: "localhost/XE"
-    });
-  } catch (exception) {
-    //console.log("Could not connect to DB");
-    console.log(exception);
+    await db.authenticate();
+    console.log("Connected to db");
+    return true;
+  } catch (e) {
+    console.log(e);
+    return false;
   }
-}
-
-async function executeQueries(sql) {
-  const results = [];
-
-  for (const s of sql) {
-    console.log("executing : " + s);
-    const result = await connection.execute(s);
-    results.push(result);
-  }
-  return results;
-}
-
-module.exports = {
-  start_connection,
-  executeQueries
 };
+
+const sendRawQuery = async function sendRawQuery(s) {
+  const [results, metadata] = await db.query(s);
+  console.log(metadata);
+};
+
+module.exports = { checkAuth, db, sendRawQuery };
