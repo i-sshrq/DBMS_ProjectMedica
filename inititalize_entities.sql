@@ -15,7 +15,7 @@ health_issues varchar2(200),
 other_info varchar2(200),
 address varchar2(80),
 phone_number varchar2(15),
-email varchar2(20)
+email varchar2(40)
 );
 
 commit;
